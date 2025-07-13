@@ -14,8 +14,8 @@ const CalculatorTabs = () => {
         <div className="flex justify-center mb-6 gap-4">
           <button
             className={`px-5 py-2 rounded-full text-sm font-medium transition ${activeTab === "standard"
-                ? "bg-green-600 text-white"
-                : "bg-zinc-200 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-300 dark:hover:bg-zinc-700"
+              ? "bg-green-600 text-white"
+              : "bg-zinc-200 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-300 dark:hover:bg-zinc-700"
               }`}
             onClick={() => setActiveTab("standard")}
           >
@@ -23,8 +23,8 @@ const CalculatorTabs = () => {
           </button>
           <button
             className={`px-5 py-2 rounded-full text-sm font-medium transition ${activeTab === "scientific"
-                ? "bg-green-600 text-white"
-                : "bg-zinc-200 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-300 dark:hover:bg-zinc-700"
+              ? "bg-green-600 text-white"
+              : "bg-zinc-200 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-300 dark:hover:bg-zinc-700"
               }`}
             onClick={() => setActiveTab("scientific")}
           >
@@ -33,18 +33,20 @@ const CalculatorTabs = () => {
         </div>
 
         {/* Active Tab Content */}
-        {activeTab === "standard" ? <StandardCalculator /> : <ScientificCalculator />}
+        {activeTab === "standard" ?
+          <StandardCalculator
+            history={history}
+            setHistory={addToHistory}
+            clearHistory={clearHistory}
+          /> :
+          <ScientificCalculator
+            history={history}
+            setHistory={addToHistory}
+            clearHistory={clearHistory}
+          />
+        }
       </div>
-      <StandardCalculator
-        history={history}
-        setHistory={addToHistory}
-        clearHistory={clearHistory}
-      />
-      <ScientificCalculator
-        history={history}
-        setHistory={addToHistory}
-        clearHistory={clearHistory}
-      />
+
     </div>
   );
 };

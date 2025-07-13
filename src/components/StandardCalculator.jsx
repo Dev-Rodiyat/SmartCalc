@@ -6,7 +6,7 @@ import HistoryModal from "./HistoryModal";
 import { useCalcHistory } from "../context/HistoryContext";
 
 const StandardCalculator = () => {
-    const { history, setHistory, clearHistory, deleteHistoryItem } = useCalcHistory();
+    const { history, setHistory } = useCalcHistory();
     const [input, setInput] = useState("");
     const [previewResult, setPreviewResult] = useState("");
     const [showHistory, setShowHistory] = useState(false);
@@ -41,8 +41,8 @@ const StandardCalculator = () => {
     };
 
     return (
-        <CalculatorLayout title="SmartCalc" subtitle="A simple yet powerful calculator">
-            <div className="relative mb-2">
+        <CalculatorLayout>
+            <div className="relative">
                 <button
                     onClick={() => setShowHistory(!showHistory)}
                     className="absolute left-2 top-1/2 -translate-y-1/2 text-gray-500 hover:text-black z-10"
@@ -81,38 +81,43 @@ const StandardCalculator = () => {
             )}
 
             <div className="grid grid-cols-4 grid-rows-6 gap-2 mt-4">
-                <button onClick={handleClear} className="btn bg-red-100 hover:bg-red-200">C</button>
-                <button onClick={() => handleClick("(")} className="btn">(</button>
-                <button onClick={() => handleClick(")")} className="btn">)</button>
+                <button onClick={handleClear} className="btn bg-red-100 hover:bg-red-200 flex items-center justify-center">C</button>
+                <button onClick={() => handleClick("(")} className="btn flex items-center justify-center">(</button>
+                <button onClick={() => handleClick(")")} className="btn flex items-center justify-center">)</button>
                 <button onClick={handleDelete} className="btn bg-yellow-100 hover:bg-yellow-200 flex items-center justify-center">
                     <FiDelete size={20} />
                 </button>
 
-                <button onClick={() => handleClick("/")} className="btn">/</button>
-                <button onClick={() => handleClick("×")} className="btn text-lg font-semibold">×</button>
-                <button onClick={() => handleClick("-")} className="btn">-</button>
-                <button onClick={() => handleClick("+")} className="btn">+</button>
+                <button onClick={() => handleClick("/")} className="btn flex items-center justify-center text-lg font-semibold">/</button>
+                <button onClick={() => handleClick("×")} className="btn flex items-center justify-center text-lg font-semibold">×</button>
+                <button onClick={() => handleClick("-")} className="btn flex items-center justify-center text-lg font-semibold">-</button>
+                <button onClick={() => handleClick("+")} className="btn flex items-center justify-center text-lg font-semibold">+</button>
 
-                {[..."7894561230"].map((num) => (
+                {[..."789456123"].map((num) => (
                     <button
                         key={num}
                         onClick={() => handleClick(num)}
-                        className={`btn ${num === "0" ? "col-span-2" : ""}`}
+                        className='btn flex items-center justify-center'
                     >
                         {num}
                     </button>
                 ))}
 
-                <button onClick={() => handleClick(".")} className="btn">.</button>
-                <button onClick={handleEqual} className="btn bg-green-100 hover:bg-green-200 row-span-3">=</button>
+                {/* Handle 0 to span two columns (optional) */}
+                <button
+                    onClick={() => handleClick("0")}
+                    className="btn flex items-center justify-center"
+                >
+                    0
+                </button>
+
+                <button onClick={() => handleClick(".")} className="btn flex items-center justify-center">.</button>
+                <button onClick={handleEqual} className="btn bg-green-100 hover:bg-green-200 flex items-center justify-center">=</button>
             </div>
 
             {showHistory && (
                 <HistoryModal
                     onClose={() => setShowHistory(false)}
-                    history={history}
-                    handleClearHistory={clearHistory}
-                    handleDeleteItem={deleteHistoryItem}
                 />
             )}
         </CalculatorLayout>

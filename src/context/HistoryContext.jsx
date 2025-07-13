@@ -3,18 +3,18 @@ import React, { createContext, useContext, useState, useEffect } from "react";
 const CalcHistoryContext = createContext();
 
 export const CalcHistoryProvider = ({ children }) => {
-    const [history, setHistory] = useState([]);
-
-    useEffect(() => {
+    const [history, setHistory] = useState(() => {
         const stored = localStorage.getItem("calc-history");
-        if (stored) {
-            setHistory(JSON.parse(stored));
-        }
-    }, []);
+        return stored ? JSON.parse(stored) : [];
+    });
 
     useEffect(() => {
         localStorage.setItem("calc-history", JSON.stringify(history));
     }, [history]);
+
+    const addToHistory = (input, result) => {
+        setHistory((prev) => [...prev, { input, result }]);
+    };
 
     const clearHistory = () => {
         setHistory([]);
@@ -30,7 +30,9 @@ export const CalcHistoryProvider = ({ children }) => {
     };
 
     return (
-        <CalcHistoryContext.Provider value={{ history, setHistory, clearHistory, deleteHistoryItem }}>
+        <CalcHistoryContext.Provider
+            value={{ history, setHistory, addToHistory, clearHistory, deleteHistoryItem }}
+        >
             {children}
         </CalcHistoryContext.Provider>
     );
