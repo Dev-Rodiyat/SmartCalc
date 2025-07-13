@@ -2,25 +2,24 @@
 
 **SmartCalc** is a sleek and intuitive scientific calculator built with **React** and **Tailwind CSS**, featuring real-time expression evaluation, syntax highlighting, auto-closing parentheses, and a dynamic history log. Designed for ease of use and power, it supports both basic and advanced scientific functions with an interactive UI.
 
-![SmartCalc Screenshot](./screenshot.png) <!-- Optional image link if you have one -->
-
 ---
 
 ## 🚀 Features
 
 * ✅ **Basic Operations** — `+`, `-`, `×`, `÷`, `%`, `()`
+* ✅ **Standard Functions** — `(`, `)`, `x`, `+`, `-`
 * ✅ **Scientific Functions** — `sin`, `cos`, `tan`, `log`, `ln`, `√`, `x²`, `π`
 * ✅ **Auto-Closing Parentheses** — Smart insertion of numbers into functions like `sin(45)`
 * ✅ **Syntax Highlighting** — Clear display of numbers, operators, and functions
 * ✅ **Keyboard & Click Input** — Use keyboard or buttons to enter expressions
 * ✅ **Persistent History** — View a modal with previously evaluated expressions
-* ✅ **Responsive Design** — Mobile-friendly, dark mode supported
+* ✅ **Responsive Design** — Mobile-friendly.
 
 ---
 
 ## 🛠️ Built With
 
-* ⚛️ **React** — Component-based UI
+* ⚛️ **React + Vite** — Component-based UI
 * 🎨 **Tailwind CSS** — Utility-first styling
 * 🧮 **math.js** — Robust math evaluation engine
 * 🗃️ **React Context** — Shared state for history
@@ -31,8 +30,8 @@
 
 ```bash
 # 1. Clone the repo
-git clone https://github.com/yourusername/smartcalc.git
-cd smartcalc
+git clone https://github.com/Dev-Rodiyat/SmartCalc.git
+cd SmartCalc
 
 # 2. Install dependencies
 npm install
@@ -41,7 +40,7 @@ npm install
 npm run dev
 ```
 
-The app will be available at `http://localhost:5173` or `http://localhost:3000`.
+The app will be available at `http://localhost:5173`.
 
 ---
 
@@ -52,15 +51,15 @@ src/
 │
 ├── components/
 │   ├── ScientificCalculator.jsx
+│   ├── StandardCalculator.jsx
+│   ├── CalculatorTabs.jsx
 │   ├── CalculatorLayout.jsx
 │   └── HistoryModal.jsx
 │
 ├── context/
 │   └── HistoryContext.jsx
 │
-├── styles/
-│   └── tailwind.config.js
-│
+├── tailwind.config.js
 └── main.jsx
 ```
 
@@ -79,14 +78,13 @@ src/
 
 ## 📸 Screenshots
 
-> You can add screenshots here to show off the UI in both light and dark mode.
+> ![Standard Calculator](image.png) ![Scientific Calculator](image-1.png)
 
 ---
 
 ## ✨ Possible Enhancements
 
 * ✅ Keyboard navigation and shortcuts
-* 🔜 Save history to `localStorage`
 * 🔜 Theme customization
 * 🔜 Support for parentheses nesting and error hints
 
@@ -95,12 +93,6 @@ src/
 ## 🤝 Contributing
 
 Contributions are welcome! Feel free to fork this repo and submit a pull request.
-
----
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
 
 ---
 
