@@ -1,6 +1,6 @@
 # 🧠 SmartCalc – Scientific & Standard Calculator App
 
-**SmartCalc** is a sleek and intuitive scientific and standard calculator built with **React**, **Vite** and **Tailwind CSS**, featuring real-time expression evaluation, syntax highlighting, auto-closing parentheses, and a dynamic history log. Designed for ease of use and power, it supports both basic and advanced scientific functions with an interactive UI.
+**SmartCalc** is a sleek and intuitive scientific and standard calculator built with **React**, **Vite** and **Tailwind CSS**, featuring real-time expression evaluation, syntax highlighting, auto-closing parentheses, and a dynamic history log. Designed for ease of use and power, it supports both basic and advanced scientific and standard functions with an interactive UI.
 
 ---
 
