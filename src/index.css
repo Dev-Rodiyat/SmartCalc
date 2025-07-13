@@ -4,6 +4,12 @@
 
 @layer components {
   .btn {
-    @apply p-2 bg-gray-100 rounded hover:bg-gray-200 text-lg font-medium;
+    @apply px-6 py-3 text-base font-medium bg-gray-200 rounded-xl hover:bg-gray-300;
+  }
+
+  @media (min-width: 640px) {
+    .btn {
+      @apply px-8 py-4 text-lg;
+    }
   }
 }
